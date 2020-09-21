@@ -2,10 +2,11 @@ import React from 'react'
 //import {mount} from 'enzyme';
 
 import AmortisationForm from './AmortisationForm';
-import { reduxForm } from 'redux-form';
+import { reduxForm, Field } from 'redux-form';
 import {Provider} from 'react-redux';
 import configureStore  from 'redux-mock-store';
 import {createMount} from '@material-ui/core/test-utils';
+import {Button} from '@material-ui/core';
 
 describe('<AmortisationForm />', () => {
     let WrappedAmortisationForm: any;
@@ -47,6 +48,35 @@ describe('<AmortisationForm />', () => {
             </Provider>
             );
         expect(wrapper).toBeDefined();
+    });
+
+    it('should render 4 fields',  () => {
+        wrapper = mount(
+            <Provider store={store}>
+                <WrappedAmortisationForm handleSubmit={handleSubmit} />
+            </Provider>
+        );
+        expect(wrapper.find(Field)).toHaveLength(4);
+    });
+
+    it('should render submit button',  () => {
+        wrapper = mount(
+            <Provider store={store}>
+                <WrappedAmortisationForm handleSubmit={handleSubmit} />
+            </Provider>
+        );
+        expect(wrapper.find(Button)).toHaveLength(1);
+    });
+
+    it('should call handleSubmit',  () => {
+        wrapper = mount(
+            <Provider store={store}>
+                <WrappedAmortisationForm handleSubmit={handleSubmit} />
+            </Provider>
+        );
+        const form = wrapper.find('form');
+        form.simulate('submit');
+        expect(handleSubmit).toHaveBeenCalled();
     });
 
 });

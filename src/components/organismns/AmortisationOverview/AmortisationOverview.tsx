@@ -1,7 +1,7 @@
 import React from 'react';
 import {Box, Typography, Grid, CircularProgress} from '@material-ui/core';
-import { AmortisationTableContainer } from 'containers'
-import { Price } from 'components'
+import AmortisationTableContainer from '../../../containers/AmortisationTableContainer/AmortisationTableContainer'
+import Price from '../../atoms/Price/Price'
 
 interface AmortisationOverviewProps {
     amortisation: any,

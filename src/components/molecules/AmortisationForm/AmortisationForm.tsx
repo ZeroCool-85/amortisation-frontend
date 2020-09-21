@@ -2,7 +2,8 @@ import React, { useEffect, useState, useCallback, useRef } from 'react';
 import {InjectedFormProps, Field} from 'redux-form';
 import { Grid, Button } from '@material-ui/core'
 import {AmortisationFormProps} from 'interfaces/form';
-import {InputField, SliderField} from 'components'
+import SliderField from '../../atoms/SliderField/SliderField'
+import InputField from '../../atoms/InputField/InputField'
 
 interface Props {
     formValues?: object

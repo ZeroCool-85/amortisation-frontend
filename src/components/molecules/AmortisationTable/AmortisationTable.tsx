@@ -9,7 +9,7 @@ import {
     Paper,
     Box
 } from '@material-ui/core'
-import { Price } from 'components'
+import Price from '../../atoms/Price/Price'
 
 interface AmortisationTableProps {
     amortisation: any
